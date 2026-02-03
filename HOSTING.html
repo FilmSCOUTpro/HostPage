@@ -49,6 +49,11 @@
             overflow: hidden;
         }
 
+        .rewards-frame {
+            padding-top: 60px; 
+            padding-bottom: 60px;
+        }
+
         .ghost-hosting-bg {
             position: absolute;
             top: 10px;
@@ -75,6 +80,16 @@
             display: block; 
         }
         .internal-title span { display: inline; }
+
+        .internal-title-centered {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            margin: 0 0 60px 0;
+            line-height: 1.1;
+            color: var(--brand-black);
+            text-align: center;
+        }
 
         .contained-subheader { 
             font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
@@ -113,8 +128,8 @@
         .btn-verify { background: var(--brand-black); color: var(--brand-white); padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.2rem; text-transform: uppercase; display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid var(--brand-black); width: fit-content; }
         .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); transform: scale(1.05); }
 
-        .footer-asset-wrap { text-align: center; width: 100%; line-height: 0; background: #000; overflow: hidden; position: relative; display: flex; justify-content: center; }
-        .final-footer-image { width: 100%; max-width: 840px; height: auto; filter: brightness(1.6); vertical-align: bottom; clip-path: inset(1px 1px 1px 1px); }
+        .footer-asset-wrap { text-align: center; width: 100%; line-height: 0; background: #000; overflow: hidden; position: relative; display: flex; justify-content: center; padding-bottom: 20px; }
+        .final-footer-image { width: 100%; max-width: 840px; height: auto; filter: brightness(1.6); vertical-align: bottom; clip-path: inset(1px 1px 1px 1px); transition: transform 0.3s ease; }
         .footer-mailto-overlay { position: absolute; bottom: 20%; width: 450px; height: 300px; cursor: pointer; z-index: 10; }
 
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
@@ -127,9 +142,14 @@
             .ghost-hosting-bg { font-size: 18vw; top: 20px; left: 0; width: 100%; text-align: center; }
             .internal-title span { display: block; }
             .divider { margin: 0 auto 40px auto; }
+            .learn-more-btn { margin: 0 auto; align-self: center; }
             .btn-verify { width: 90%; padding: 18px 0; font-size: 1rem; }
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
             .modal-content { width: calc(100% - 80px); margin: 5vh auto; padding: 40px 25px; }
+            
+            /* INCREASED FOOTER PRESENCE ON MOBILE */
+            .footer-asset-wrap { padding-bottom: 60px; margin-top: 40px; }
+            .final-footer-image { transform: scale(1.15); }
         }
     </style>
 </head>
@@ -151,19 +171,15 @@
         </div>
     </div>
 
-    <div class="white-frame">
-        <h2 style="text-align: center; font-weight: 900; color: #000; font-size: 2.5rem; margin-bottom: 40px;">The ProHOST Rewards Program</h2>
+    <div class="white-frame rewards-frame">
+        <h2 class="internal-title-centered">The ProHOST Rewards Program</h2>
         <div class="tier-grid">
             <div class="tier-card vip-card">
                 <h2>VIP HOST</h2>
                 <div class="tier-tagline">Your Red Carpet Debut</div>
                 <div class="rate">30%</div>
                 <div class="retain-label">You Retain 70%*</div>
-                <ul>
-                    <li>For beginner hosts that require full-service representation.</li>
-                    <li>Full negotiation and insurance vetting.</li>
-                    <li>Dedicated expert support from day one.</li>
-                </ul>
+                <ul><li>For beginner hosts that require full-service representation.</li><li>Full negotiation and insurance vetting.</li><li>Dedicated expert support from day one.</li></ul>
                 <button class="learn-more-btn" onclick="openModal('vip')">Learn More</button>
             </div>
             <div class="tier-card pro-card">
@@ -171,11 +187,7 @@
                 <div class="tier-tagline">The Leading Role</div>
                 <div class="rate">25%</div>
                 <div class="retain-label">You Retain 75%*</div>
-                <ul>
-                    <li>Qualify with 5 locations or a 3-month verification streak.</li>
-                    <li>Earn more by keeping your listing calendar availability updated.</li>
-                    <li>Displays Verified Badge to maximize exposure.</li>
-                </ul>
+                <ul><li>Qualify with 5 locations or a 3-month verification streak.</li><li>Earn more by keeping your listing calendar availability updated.</li><li>Displays Verified Badge to maximize exposure.</li></ul>
                 <button class="learn-more-btn" onclick="openModal('pro')">Learn More</button>
             </div>
             <div class="tier-card proplus-card">
@@ -183,11 +195,7 @@
                 <div class="tier-tagline">Industry Elite</div>
                 <div class="rate">20%</div>
                 <div class="retain-label">You Retain 80%*</div>
-                <ul>
-                    <li>For experienced independent hosts.</li>
-                    <li>Must maintain a 100% verified availability streak.</li>
-                    <li>Automated payouts via integrated Stripe banking.</li>
-                </ul>
+                <ul><li>For experienced independent hosts.</li><li>Must maintain a 100% verified availability streak.</li><li>Automated payouts via integrated Stripe banking.</li></ul>
                 <button class="learn-more-btn" onclick="openModal('proplus')">Learn More</button>
             </div>
         </div>
@@ -221,7 +229,7 @@
                     <li style="margin-bottom:18px;"><strong>• Full-Service Operations:</strong> We act as your primary liaison, managing every detail including messaging, high-level negotiations, and production logistics.</li>
                     <li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> We handle rigorous insurance vetting and legal contract compliance to protect your property.</li>
                     <li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Enjoy hands-off manual payment processing and performance-based earnings.</li>
-                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support—managing all aspects of filming from initial inquiry and scouting to final wrap-out, including conflict resolution and restitution management.</li>
+                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support.</li>
                   </ul>` 
         },
         pro: { 
@@ -229,9 +237,8 @@
                     <div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Higher engagement for higher earnings.</div>`, 
             body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
                     <li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> Manage 5+ approved locations OR maintain a 3-month verification streak.</li>
-                    <li style="margin-bottom:18px;"><strong>• Optimization:</strong> Earn more by keeping your listing calendar availability updated. A current calendar allows your property to be presented to Productions immediately.</li>
+                    <li style="margin-bottom:18px;"><strong>• Optimization:</strong> Earn more by keeping your listing calendar availability updated.</li>
                     <li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge to signal reliability to top industry Pros.</li>
-                    <li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> This 25% service fee is our way of rewarding hosts who contribute to the operational efficiency of our platform.</li>
                   </ul>` 
         },
         proplus: { 
@@ -240,8 +247,7 @@
             body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
                     <li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> You take full ownership of the operational workload, inquiries, and on-site logistics.</li>
                     <li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> ProHOST+ partners must maintain 100% verified availability.</li>
-                    <li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong> for protected, automated payouts.</li>
-                    <li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication with Scouts and Producers via our integrated marketplace messaging system.</li>
+                    <li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong>.</li>
                   </ul>` 
         }
     };
