@@ -46,26 +46,26 @@
             text-align: left;
             color: var(--text-main);
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Crucial for containing the massive text */
         }
 
-        .rewards-frame {
-            padding-top: 60px; 
-            padding-bottom: 60px;
-        }
+        .rewards-frame { padding-top: 60px; padding-bottom: 60px; }
 
+        /* UPDATED: MASSIVE BLOWN-UP "HOST" GHOST TEXT */
         .ghost-hosting-bg {
             position: absolute;
-            top: 10px;
-            left: 30px;
-            font-size: 15rem; 
+            top: 50%; /* Center vertically */
+            left: -20px; /* Slight left justification */
+            font-size: 30rem; /* Blown up size */
             font-weight: 900;
             color: #f4f4f4; 
             letter-spacing: -0.05em;
             z-index: 0;
             pointer-events: none;
-            line-height: 0.9;
+            line-height: 0.7;
             text-transform: uppercase;
+            transform: translateY(-50%); /* Keeps it centered vertically while massive */
+            white-space: nowrap;
         }
 
         .content-wrap { position: relative; z-index: 1; }
@@ -138,7 +138,8 @@
         @media (max-width: 950px) {
             .logo-header { text-align: center; padding: 30px 20px; }
             .white-frame { padding: 40px 20px 50px 20px; text-align: center; }
-            .ghost-hosting-bg { font-size: 18vw; top: 20px; left: 0; width: 100%; text-align: center; }
+            /* Mobile ghost scaling */
+            .ghost-hosting-bg { font-size: 35vw; top: 50%; left: 0; width: 100%; text-align: center; }
             .internal-title span { display: block; }
             .divider { margin: 0 auto 40px auto; }
             .tier-card h2, .tier-tagline { text-align: center; }
@@ -160,7 +161,7 @@
 
 <div class="container">
     <div class="white-frame">
-        <div class="ghost-hosting-bg">HOSTING</div>
+        <div class="ghost-hosting-bg">HOST</div>
         <div class="content-wrap">
             <h1 class="internal-title"><span>Earning</span> <span>with</span> <span>FilmSCOUTpro</span></h1>
             <p class="contained-subheader">A versatile service model built to accommodate all types of Hosts.</p>
@@ -233,7 +234,7 @@
                     <li style="margin-bottom:18px;"><strong>• Full-Service Operations:</strong> We act as your primary liaison, managing every detail including messaging, high-level negotiations, and production logistics.</li>
                     <li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> We handle rigorous insurance vetting and legal contract compliance to protect your property.</li>
                     <li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Enjoy hands-off manual payment processing and performance-based earnings.</li>
-                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support.</li>
+                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support—managing all aspects of filming from initial inquiry and scouting to final wrap-out, including conflict resolution and restitution management.</li>
                   </ul>` 
         },
         pro: { 
@@ -243,6 +244,7 @@
                     <li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> Manage 5+ approved locations OR maintain a 3-month verification streak.</li>
                     <li style="margin-bottom:18px;"><strong>• Optimization:</strong> Earn more by keeping your listing calendar availability updated.</li>
                     <li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge to signal reliability to top industry Pros.</li>
+                    <li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> This 25% service fee is our way of rewarding hosts who contribute to the operational efficiency of our platform.</li>
                   </ul>` 
         },
         proplus: { 
@@ -251,7 +253,8 @@
             body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
                     <li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> You take full ownership of the operational workload, inquiries, and on-site logistics.</li>
                     <li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> ProHOST+ partners must maintain 100% verified availability.</li>
-                    <li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong>.</li>
+                    <li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong> for protected, automated payouts.</li>
+                    <li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication with Scouts and Producers via our integrated marketplace messaging system.</li>
                   </ul>` 
         }
     };
