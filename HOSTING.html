@@ -32,6 +32,8 @@
             max-width: 1150px; 
             margin: 0 auto; 
             padding: 0 40px 20px 40px; 
+            box-sizing: border-box;
+            width: 100%;
         }
 
         .white-frame {
@@ -46,24 +48,24 @@
             text-align: left;
             color: var(--text-main);
             position: relative;
+            width: 100%;
             overflow: hidden; 
         }
 
         .rewards-frame { padding-top: 60px; padding-bottom: 60px; }
 
-        .content-wrap { position: relative; z-index: 1; }
-
+        /* HEADER REACTIVE STACKING - Stage 1: One Line Across */
         .internal-title {
             font-size: clamp(2.5rem, 8vw, 5.1rem); 
             font-weight: 900; 
             letter-spacing: -0.05em; 
+            color: var(--brand-black);
             margin: 0 0 30px 0; 
             line-height: 1.1; 
-            color: var(--brand-black);
             display: block; 
-            word-wrap: break-word;
         }
         .internal-title span { display: inline; }
+        .internal-title .break-mobile { display: inline; }
 
         .internal-title-centered {
             font-size: clamp(1.8rem, 6vw, 3rem);
@@ -79,63 +81,121 @@
             font-size: clamp(1.1rem, 2.5vw, 1.3rem); 
             margin: 0 0 40px 0; 
             color: var(--brand-black); 
-            font-weight: 700; 
+            font-weight: 400; 
             max-width: 700px;
             line-height: 1.4;
         }
 
         .divider { width: 50px; height: 3px; background: var(--brand-black); margin: 0 0 40px 0; border-radius: 2px; opacity: 0.2; }
+        .info-para { margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem; color: var(--text-main); }
         
-        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .tier-card { color: var(--brand-white); padding: 30px; border-radius: 35px; display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .tier-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .tier-card { 
+            padding: 35px; border-radius: 35px; display: flex; flex-direction: column; 
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); cursor: pointer; position: relative;
+            box-sizing: border-box; min-width: 0; 
+        }
         .tier-card:hover { transform: translateY(-10px); }
-        .vip-card { background-color: var(--brand-pink); }
-        .pro-card { background-color: var(--brand-blue); } 
-        .proplus-card { background-color: var(--brand-yellow); color: var(--brand-black); }
-        .tier-card h2 { font-size: 1.7rem; margin: 0; font-weight: 800; }
-        .tier-tagline { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; opacity: 0.9; font-weight: 700; }
-        .rate { font-size: 2.8rem; font-weight: 900; margin-bottom: 0; line-height: 1; text-align: left; }
-        
-        .service-fee-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; opacity: 0.85; text-align: left; }
 
-        .retain-label { font-size: 1rem; font-weight: 700; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-bottom: 20px; text-align: left; }
+        .vip-card { background-color: var(--brand-pink); color: var(--brand-white); }
+        .pro-card { background-color: var(--brand-blue); color: var(--brand-white); } 
+        .proplus-card { background-color: var(--brand-yellow); color: var(--brand-black); }
+
+        .hollywood-title {
+            display: block; width: 100%; font-size: clamp(0.75rem, 1.2vw, 1.25rem); 
+            font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
+            margin-bottom: 25px; padding: 12px 0; border-bottom: 3.5px solid rgba(255,255,255,0.4);
+            white-space: nowrap; overflow: hidden;
+        }
+        .proplus-card .hollywood-title { border-bottom: 3.5px solid rgba(0,0,0,0.15); }
+
+        .card-header-split { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .card-header-left { flex: 1; text-align: left; min-width: 0; }
+        .card-header-right { flex-shrink: 0; width: clamp(50px, 8vw, 90px); margin-left: 10px; }
+        .shield-img { width: 100%; height: auto; display: block; }
+
+        .tier-card h2 { font-size: clamp(1rem, 1.8vw, 1.7rem); margin: 0 0 10px 0; font-weight: 800; text-align: left; white-space: nowrap; }
+        .rate { font-size: clamp(1.8rem, 3.5vw, 3.2rem); font-weight: 900; margin-bottom: 0; line-height: 1; text-align: left; }
+        .service-fee-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; opacity: 0.85; text-align: left; }
+        .retain-label { font-size: 1rem; font-weight: 700; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-bottom: 20px; text-align: left; margin-top:10px; }
         .proplus-card .retain-label { border-bottom: 2px solid rgba(0,0,0,0.1); }
+        
         .tier-card ul { list-style: none; padding: 0; flex-grow: 1; margin-bottom: 20px; text-align: left; }
         .tier-card li { margin-bottom: 12px; font-size: 0.95rem; font-weight: 500; line-height: 1.4; padding-left: 15px; position: relative;}
         .tier-card li::before { content: "•"; position: absolute; left: 0; }
 
-        .learn-more-btn { background: rgba(255, 255, 255, 0.15); color: white; border: 1px solid rgba(255, 255, 255, 0.4); padding: 12px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center; width: fit-content; align-self: flex-start; }
-        .vip-card .learn-more-btn:hover { background: white; color: var(--brand-pink); transform: scale(1.1); }
-        .pro-card .learn-more-btn:hover { background: white; color: var(--brand-blue); transform: scale(1.1); }
-        .proplus-card .learn-more-btn { border: 1px solid rgba(0, 0, 0, 0.2); color: var(--brand-black); }
+        .learn-more-btn { 
+            background: rgba(255, 255, 255, 0.15); color: inherit; border: 1px solid rgba(255, 255, 255, 0.4); 
+            padding: 12px 25px; border-radius: 50px; font-weight: 700; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            text-align: center; width: fit-content; align-self: flex-start; 
+        }
+        
+        .vip-card .learn-more-btn:hover, .pro-card .learn-more-btn:hover { background: white; color: var(--brand-black); transform: scale(1.1); }
+        .proplus-card .learn-more-btn { border: 1px solid rgba(0, 0, 0, 0.3); }
         .proplus-card .learn-more-btn:hover { background: var(--brand-black); color: var(--brand-yellow); transform: scale(1.1); }
 
         .qualification-footer { margin-top: 25px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .btn-verify { background: var(--brand-black); color: var(--brand-white); padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.2rem; text-transform: uppercase; display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid var(--brand-black); width: fit-content; }
-        .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); transform: scale(1.05); }
+        .btn-verify { 
+            background: var(--brand-black); color: var(--brand-white); padding: 18px 50px; border-radius: 100px; text-decoration: none; 
+            font-weight: 800; font-size: 1.2rem; text-transform: uppercase; display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid var(--brand-black); 
+        }
+        .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); color: var(--brand-black); transform: scale(1.05); }
 
         .footer-asset-wrap { text-align: center; width: 100%; line-height: 0; background: #000; overflow: hidden; position: relative; display: flex; justify-content: center; padding-bottom: 20px; }
-        .final-footer-image { width: 100%; max-width: 840px; height: auto; filter: brightness(1.6); vertical-align: bottom; clip-path: inset(1px 1px 1px 1px); transition: transform 0.3s ease; }
-        .footer-mailto-overlay { position: absolute; bottom: 20%; width: 450px; height: 300px; cursor: pointer; z-index: 10; }
+        .final-footer-image { width: 100%; max-width: 840px; height: auto; filter: brightness(1.6); vertical-align: bottom; clip-path: inset(1px 1px 1px 1px); }
 
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
-        .modal-content { background-color: white; margin: 8vh auto; padding: 50px 40px; border-radius: 40px; max-width: 700px; width: 85%; position: relative; max-height: 80vh; overflow-y: auto; color: var(--text-main); }
-        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 32px; cursor: pointer; color: var(--brand-black); }
+        .invisible-mailto { position: absolute; top: 15%; left: 25%; width: 50%; height: 40%; background: rgba(0,0,0,0); z-index: 5; cursor: pointer; }
 
+        .modal { 
+            display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.85); backdrop-filter: blur(10px); justify-content: center; align-items: center; 
+        }
+        .modal-content { 
+            background-color: white; padding: 50px 40px; border-radius: 40px; max-width: 700px; width: 90%; position: relative; 
+            max-height: 85vh; overflow-y: auto; color: var(--text-main); box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; 
+        }
+        .close-btn { position: absolute; right: 25px; top: 20px; font-size: 32px; cursor: pointer; color: var(--brand-black); z-index: 10; }
+
+        /* STAGE 2: Intermediate Stacking (Two Lines) */
+        @media (max-width: 1100px) {
+            .internal-title span { display: inline; }
+            .internal-title .break-mobile { display: block; } /* Forces "FilmSCOUTpro" to next line */
+        }
+
+        /* STAGE 3: Thinnest View (Three Lines & Centered) */
         @media (max-width: 950px) {
             .logo-header { text-align: center; padding: 30px 20px; }
-            .white-frame { padding: 40px 20px 50px 20px; text-align: center; }
-            .internal-title { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 20px; }
-            .internal-title span { display: block; }
+            .white-frame { padding: 40px 20px 50px 20px; text-align: center; border-radius: 30px; }
+            
+            /* Center Justified and 3 Lines Stacking */
+            .internal-title { text-align: center; }
+            .internal-title span { display: block; } 
+            .internal-title .break-mobile { display: block; }
+            
             .divider { margin: 0 auto 40px auto; }
-            .tier-card h2, .tier-tagline { text-align: center; }
-            .rate, .retain-label, .tier-card ul { text-align: left; }
-            .learn-more-btn { margin: 0 auto; align-self: center; }
-            .btn-verify { width: 90%; padding: 18px 0; font-size: 1rem; }
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
-            .modal-content { width: calc(100% - 80px); margin: 5vh auto; padding: 40px 25px; }
-            .footer-asset-wrap { padding-bottom: 60px; margin-top: 40px; }
-            .final-footer-image { transform: scale(1.15); }
+            .hollywood-title { white-space: normal; overflow: visible; font-size: 1.15rem; text-align: center; }
+            .tier-card h2 { white-space: normal; font-size: 1.5rem; text-align: left; }
+            .rate { text-align: left; font-size: 3.2rem; }
+            .service-fee-label { text-align: left; }
+            .card-header-left { text-align: left; }
+            .card-header-right { width: 90px; margin-left: 10px; margin-right: 0; }
+            .retain-label { text-align: left; }
+            .tier-card ul { text-align: left; padding-left: 0; width: 100%; margin: 0 0 20px 0; }
+            .tier-card li { padding-left: 15px; margin-bottom: 12px; }
+            .tier-card li::before { display: block; content: "•"; position: absolute; left: 0; }
+            .learn-more-btn { align-self: center; }
+            .contained-subheader { margin: 0 auto 40px auto; text-align: center; }
+            .modal-content { width: calc(100% - 40px); padding: 40px 25px; }
+            .invisible-mailto { top: 10%; height: 50%; }
         }
     </style>
 </head>
@@ -148,58 +208,97 @@
 <div class="container">
     <div class="white-frame">
         <div class="content-wrap">
-            <h1 class="internal-title"><span>Earning</span> <span>with</span> <span>FilmSCOUTpro</span></h1>
-            <p class="contained-subheader">A versatile service model built to accommodate all types of Hosts.</p>
+            <h1 class="internal-title">
+                <span>Earning</span> <span>with</span> <span class="break-mobile">FilmSCOUTpro</span>
+            </h1>
+            <p class="contained-subheader">A versatile service model built for every type of <strong>host</strong>.</p>
             <div class="divider"></div>
             <p class="info-para">FilmSCOUTpro provides full-service management to host major productions on your property. From expert marketing to secure payouts—our custom platform handles all the heavy lifting.</p>
-            <p class="info-para" style="margin-bottom: 0;">Our model is built on performance—the more you engage, the more you earn. Every host joins our network as a VIP, but our active hosts unlock ProHOST Rewards and keep more of their fees. Bottom line—we only succeed when you do!</p>
+            <p class="info-para">Our model is built on performance—the more you engage, the more you earn. Every host joins our network as a VIP, but our active hosts unlock ProHOST Rewards and keep more of their fees.</p>
+            <p class="info-para" style="margin-bottom: 0;">Bottom line—<strong>we only succeed when you do.</strong></p>
         </div>
     </div>
 
     <div class="white-frame rewards-frame">
         <h2 class="internal-title-centered">The ProHOST Rewards Program</h2>
         <div class="tier-grid">
-            <div class="tier-card vip-card">
-                <h2>VIP HOST</h2>
-                <div class="tier-tagline">Your Red Carpet Debut</div>
-                <div class="rate">30%</div>
-                <div class="service-fee-label">Service Fee</div>
+            
+            <div class="tier-card vip-card" onclick="openModal('vip')">
+                <span class="hollywood-title">Red Carpet Debut</span>
+                <div class="card-header-split">
+                    <div class="card-header-left">
+                        <h2>VIP HOST</h2>
+                        <div class="rate">30%</div>
+                        <div class="service-fee-label">Service Fee</div>
+                    </div>
+                    <div class="card-header-right">
+                        <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/VipREDshield.png" alt="VIP Shield" class="shield-img">
+                    </div>
+                </div>
                 <div class="retain-label">You Retain 70%*</div>
-                <ul><li>For beginner hosts that require full-service representation.</li><li>Full negotiation and insurance vetting.</li><li>Dedicated expert support from day one.</li></ul>
-                <button class="learn-more-btn" onclick="openModal('vip')">Learn More</button>
+                <ul>
+                    <li>For beginner hosts that require full-service representation.</li>
+                    <li>Full negotiation and insurance vetting.</li>
+                    <li>Dedicated expert support from day one.</li>
+                </ul>
+                <button class="learn-more-btn">Learn More</button>
             </div>
-            <div class="tier-card pro-card">
-                <h2>ProHOST</h2>
-                <div class="tier-tagline">The Leading Role</div>
-                <div class="rate">25%</div>
-                <div class="service-fee-label">Service Fee</div>
+
+            <div class="tier-card pro-card" onclick="openModal('pro')">
+                <span class="hollywood-title">The Leading Role</span>
+                <div class="card-header-split">
+                    <div class="card-header-left">
+                        <h2>ProHOST</h2>
+                        <div class="rate">25%</div>
+                        <div class="service-fee-label">Service Fee</div>
+                    </div>
+                    <div class="card-header-right">
+                        <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/ProBLUEshield.png" alt="Pro Shield" class="shield-img">
+                    </div>
+                </div>
                 <div class="retain-label">You Retain 75%*</div>
-                <ul><li>Maintain a 3-month verification streak OR manage 5+ approved locations.</li><li>Earn more by keeping your listing calendars up to date.</li><li>Retains the same dedicated expert support as the VIP host level.</li></ul>
-                <button class="learn-more-btn" onclick="openModal('pro')">Learn More</button>
+                <ul>
+                    <li>Maintain a 3-month verification streak OR manage 5+ approved locations.</li>
+                    <li>Earn more by keeping your availability calendars up to date.</li>
+                    <li>Retains the same dedicated expert support.</li>
+                </ul>
+                <button class="learn-more-btn">Learn More</button>
             </div>
-            <div class="tier-card proplus-card">
-                <h2>ProHOST+</h2>
-                <div class="tier-tagline">THE A-LIST</div>
-                <div class="rate">20%</div>
-                <div class="service-fee-label">Service Fee</div>
+
+            <div class="tier-card proplus-card" onclick="openModal('proplus')">
+                <span class="hollywood-title">The A-List</span>
+                <div class="card-header-split">
+                    <div class="card-header-left">
+                        <h2>ProHOST+</h2>
+                        <div class="rate">20%</div>
+                        <div class="service-fee-label">Service Fee</div>
+                    </div>
+                    <div class="card-header-right">
+                        <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/PlusYELLOWshield.png" alt="Pro+ Shield" class="shield-img">
+                    </div>
+                </div>
                 <div class="retain-label">You Retain 80%*</div>
-                <ul><li>For experienced independent hosts.</li><li>Must maintain a 100% verified availability streak.</li><li>Automated payouts via integrated Stripe banking.</li></ul>
-                <button class="learn-more-btn" onclick="openModal('proplus')">Learn More</button>
+                <ul>
+                    <li>For experienced independent hosts.</li>
+                    <li>Must maintain a 100% verified availability streak.</li>
+                    <li>Automated payouts via integrated Stripe banking.</li>
+                </ul>
+                <button class="learn-more-btn">Learn More</button>
             </div>
         </div>
 
         <p style="font-size: 0.8rem; color: #999999; margin: 35px 0 0 0; line-height: 1.4; text-align: center; font-weight: 500;">
-            *Service fees are calculated based on the gross location fee.
+            *Net earnings after FilmSCOUTpro service fees. Calculated based on the gross location fee.
         </p>
 
         <div class="qualification-footer">
-            <p style="color: #333; margin-bottom: 25px; font-weight: 700; font-size: 1.15rem;">Verified listings get the most attention. Keep your calendar up to date!</p>
+            <p style="color: #333; margin-bottom: 25px; font-weight: 700; font-size: 1.15rem;">Verified listings signal Scouts that you're available. Keep your calendar up to date!</p>
             <a href="/calendar" class="btn-verify">Verify My Listings →</a>
         </div>
     </div>
 
     <div class="footer-asset-wrap">
-        <a href="mailto:info@filmscoutpro.ca?subject=FilmSCOUTpro%20-%20Inquiry" target="_blank" class="footer-mailto-overlay"></a>
+        <a href="mailto:admin@filmscoutpro.ca?subject=FilmSCOUTpro%20-%20Contact%20Us%20Today%20-%20General%20Inquiry!" target="_blank" class="invisible-mailto"></a>
         <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/Asset%2012@2x-100.jpg" alt="FilmSCOUTpro Footer" class="final-footer-image">
     </div>
 </div>
@@ -253,11 +352,13 @@
     function openModal(tier) {
         document.getElementById('modalHeaderContent').innerHTML = modalData[tier].title;
         document.getElementById('modalBody').innerHTML = modalData[tier].body;
-        document.getElementById('infoModal').style.display = 'block';
+        document.getElementById('infoModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
     }
 
     function closeModal() {
         document.getElementById('infoModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; 
     }
 
     window.onclick = function(event) {
