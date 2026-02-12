@@ -54,15 +54,15 @@
 
         .rewards-frame { padding-top: 60px; padding-bottom: 60px; }
 
-        /* HEADER REACTIVE STACKING - Stage 1: One Line Across */
         .internal-title {
-            font-size: clamp(2.5rem, 8vw, 5.1rem); 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
             font-weight: 900; 
             letter-spacing: -0.05em; 
             color: var(--brand-black);
             margin: 0 0 30px 0; 
             line-height: 1.1; 
             display: block; 
+            white-space: nowrap; 
         }
         .internal-title span { display: inline; }
         .internal-title .break-mobile { display: inline; }
@@ -82,12 +82,12 @@
             margin: 0 0 40px 0; 
             color: var(--brand-black); 
             font-weight: 400; 
-            max-width: 700px;
+            max-width: 750px;
             line-height: 1.4;
         }
 
         .divider { width: 50px; height: 3px; background: var(--brand-black); margin: 0 0 40px 0; border-radius: 2px; opacity: 0.2; }
-        .info-para { margin-bottom: 25px; line-height: 1.6; font-size: 1.05rem; color: var(--text-main); }
+        .info-para { margin-bottom: 25px; line-height: 1.6; font-size: 1.1rem; color: var(--text-main); }
         
         .tier-grid { 
             display: grid; 
@@ -143,43 +143,42 @@
         .proplus-card .learn-more-btn:hover { background: var(--brand-black); color: var(--brand-yellow); transform: scale(1.1); }
 
         .qualification-footer { margin-top: 25px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .qualification-footer p { 
+            color: #333; 
+            margin-bottom: 25px; 
+            font-weight: 800; 
+            font-size: clamp(1.2rem, 3vw, 1.45rem); 
+            line-height: 1.3;
+        }
+
         .btn-verify { 
             background: var(--brand-black); color: var(--brand-white); padding: 18px 50px; border-radius: 100px; text-decoration: none; 
             font-weight: 800; font-size: 1.2rem; text-transform: uppercase; display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid var(--brand-black); 
         }
         .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); color: var(--brand-black); transform: scale(1.05); }
 
-        .footer-asset-wrap { text-align: center; width: 100%; line-height: 0; background: #000; overflow: hidden; position: relative; display: flex; justify-content: center; padding-bottom: 20px; }
-        .final-footer-image { width: 100%; max-width: 840px; height: auto; filter: brightness(1.6); vertical-align: bottom; clip-path: inset(1px 1px 1px 1px); }
+        .footer-asset-wrap { text-align: center; width: 100%; line-height: 0; background: var(--brand-black); overflow: hidden; position: relative; display: flex; justify-content: center; padding-bottom: 20px; }
+        .final-footer-image { 
+            width: 100%; 
+            max-width: 840px; 
+            height: auto; 
+            filter: brightness(1.6); 
+            vertical-align: bottom; 
+            clip-path: inset(0px 2px 0px 2px); 
+            transform: scale(1.01); 
+        }
 
         .invisible-mailto { position: absolute; top: 15%; left: 25%; width: 50%; height: 40%; background: rgba(0,0,0,0); z-index: 5; cursor: pointer; }
 
-        .modal { 
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; 
-            background-color: rgba(0,0,0,0.85); backdrop-filter: blur(10px); justify-content: center; align-items: center; 
-        }
-        .modal-content { 
-            background-color: white; padding: 50px 40px; border-radius: 40px; max-width: 700px; width: 90%; position: relative; 
-            max-height: 85vh; overflow-y: auto; color: var(--text-main); box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; 
-        }
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(10px); justify-content: center; align-items: center; }
+        .modal-content { background-color: white; padding: 50px 40px; border-radius: 40px; max-width: 700px; width: 90%; position: relative; max-height: 85vh; overflow-y: auto; color: var(--text-main); box-shadow: 0 30px 60px rgba(0,0,0,0.5); box-sizing: border-box; }
         .close-btn { position: absolute; right: 25px; top: 20px; font-size: 32px; cursor: pointer; color: var(--brand-black); z-index: 10; }
 
-        /* STAGE 2: Intermediate Stacking (Two Lines) */
-        @media (max-width: 1100px) {
-            .internal-title span { display: inline; }
-            .internal-title .break-mobile { display: block; } /* Forces "FilmSCOUTpro" to next line */
-        }
-
-        /* STAGE 3: Thinnest View (Three Lines & Centered) */
+        @media (max-width: 1100px) { .internal-title { white-space: normal; } .internal-title span { display: inline; } .internal-title .break-mobile { display: block; } }
+        @media (max-width: 700px) { .internal-title { text-align: center; white-space: normal; } .internal-title span { display: block; } .internal-title .break-mobile { display: block; } }
         @media (max-width: 950px) {
             .logo-header { text-align: center; padding: 30px 20px; }
             .white-frame { padding: 40px 20px 50px 20px; text-align: center; border-radius: 30px; }
-            
-            /* Center Justified and 3 Lines Stacking */
-            .internal-title { text-align: center; }
-            .internal-title span { display: block; } 
-            .internal-title .break-mobile { display: block; }
-            
             .divider { margin: 0 auto 40px auto; }
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
             .hollywood-title { white-space: normal; overflow: visible; font-size: 1.15rem; text-align: center; }
@@ -187,7 +186,7 @@
             .rate { text-align: left; font-size: 3.2rem; }
             .service-fee-label { text-align: left; }
             .card-header-left { text-align: left; }
-            .card-header-right { width: 90px; margin-left: 10px; margin-right: 0; }
+            .card-header-right { width: 90px; margin: 0 auto; } 
             .retain-label { text-align: left; }
             .tier-card ul { text-align: left; padding-left: 0; width: 100%; margin: 0 0 20px 0; }
             .tier-card li { padding-left: 15px; margin-bottom: 12px; }
@@ -208,13 +207,11 @@
 <div class="container">
     <div class="white-frame">
         <div class="content-wrap">
-            <h1 class="internal-title">
-                <span>Earning</span> <span>with</span> <span class="break-mobile">FilmSCOUTpro</span>
-            </h1>
-            <p class="contained-subheader">A versatile service model built for every type of <strong>host</strong>.</p>
+            <h1 class="internal-title"><span>Earning</span> with <span class="break-mobile">FilmSCOUTpro</span></h1>
+            <p class="contained-subheader">A versatile service model built to accommodate every type of <strong>host</strong></p>
             <div class="divider"></div>
-            <p class="info-para">FilmSCOUTpro provides full-service management to host major productions on your property. From expert marketing to secure payouts—our custom platform handles all the heavy lifting.</p>
-            <p class="info-para">Our model is built on performance—the more you engage, the more you earn. Every host joins our network as a VIP, but our active hosts unlock ProHOST Rewards and keep more of their fees.</p>
+            <p class="info-para">FilmSCOUTpro provides full-service management to host major film productions on your property. From expert marketing to guaranteed secure payouts—our custom platform helps handle the heavy lifting.</p>
+            <p class="info-para">Our model is built on performance—the more you engage, the more you earn. Every host joins our network as a VIP, but those who keep their listings verified with up-to-date availability unlock ProHOST Rewards and keep more of their fees.</p>
             <p class="info-para" style="margin-bottom: 0;">Bottom line—<strong>we only succeed when you do.</strong></p>
         </div>
     </div>
@@ -222,7 +219,6 @@
     <div class="white-frame rewards-frame">
         <h2 class="internal-title-centered">The ProHOST Rewards Program</h2>
         <div class="tier-grid">
-            
             <div class="tier-card vip-card" onclick="openModal('vip')">
                 <span class="hollywood-title">Red Carpet Debut</span>
                 <div class="card-header-split">
@@ -236,14 +232,9 @@
                     </div>
                 </div>
                 <div class="retain-label">You Retain 70%*</div>
-                <ul>
-                    <li>For beginner hosts that require full-service representation.</li>
-                    <li>Full negotiation and insurance vetting.</li>
-                    <li>Dedicated expert support from day one.</li>
-                </ul>
+                <ul><li>For beginner hosts that require full-service representation.</li><li>Full negotiation and insurance vetting.</li><li>Dedicated expert support from day one.</li></ul>
                 <button class="learn-more-btn">Learn More</button>
             </div>
-
             <div class="tier-card pro-card" onclick="openModal('pro')">
                 <span class="hollywood-title">The Leading Role</span>
                 <div class="card-header-split">
@@ -257,14 +248,9 @@
                     </div>
                 </div>
                 <div class="retain-label">You Retain 75%*</div>
-                <ul>
-                    <li>Maintain a 3-month verification streak OR manage 5+ approved locations.</li>
-                    <li>Earn more by keeping your availability calendars up to date.</li>
-                    <li>Retains the same dedicated expert support.</li>
-                </ul>
+                <ul><li>Maintain a 3-month verification streak OR manage 5+ approved locations.</li><li>Earn more by keeping your availability calendars up to date.</li><li>Retains the same dedicated expert support.</li></ul>
                 <button class="learn-more-btn">Learn More</button>
             </div>
-
             <div class="tier-card proplus-card" onclick="openModal('proplus')">
                 <span class="hollywood-title">The A-List</span>
                 <div class="card-header-split">
@@ -274,25 +260,17 @@
                         <div class="service-fee-label">Service Fee</div>
                     </div>
                     <div class="card-header-right">
-                        <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/PlusYELLOWshield.png" alt="Pro+ Shield" class="shield-img">
+                        <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/ProSTAR.png" alt="Pro+ Star Icon" class="shield-img">
                     </div>
                 </div>
                 <div class="retain-label">You Retain 80%*</div>
-                <ul>
-                    <li>For experienced independent hosts.</li>
-                    <li>Must maintain a 100% verified availability streak.</li>
-                    <li>Automated payouts via integrated Stripe banking.</li>
-                </ul>
+                <ul><li>For experienced independent hosts.</li><li>Must maintain a 100% verified availability streak.</li><li>Automated payouts via integrated Stripe banking.</li></ul>
                 <button class="learn-more-btn">Learn More</button>
             </div>
         </div>
-
-        <p style="font-size: 0.8rem; color: #999999; margin: 35px 0 0 0; line-height: 1.4; text-align: center; font-weight: 500;">
-            *Net earnings after FilmSCOUTpro service fees. Calculated based on the gross location fee.
-        </p>
-
+        <p style="font-size: 0.8rem; color: #999999; margin: 35px 0 0 0; line-height: 1.4; text-align: center; font-weight: 500;">*Net earnings after FilmSCOUTpro service fees. Calculated based on the gross location fee.</p>
         <div class="qualification-footer">
-            <p style="color: #333; margin-bottom: 25px; font-weight: 700; font-size: 1.15rem;">Verified listings signal Scouts that you're available. Keep your calendar up to date!</p>
+            <p>Maximize your booking opportunities by keeping your listings verified!</p>
             <a href="/calendar" class="btn-verify">Verify My Listings →</a>
         </div>
     </div>
@@ -313,59 +291,14 @@
 
 <script>
     const modalData = {
-        vip: { 
-            title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-pink); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">VIP HOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">YOUR RED CARPET DEBUT</h3></div>
-                    <div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">The full-service filming experience.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
-                    <li style="margin-bottom:18px;">New hosts begin with our <strong>full-service management</strong>, receiving comprehensive support so you can enjoy the perks of the industry without the logistical stress.</li>
-                    <li style="margin-bottom:18px;"><strong>• Fully supported operations:</strong> We act as your primary liaison, managing every detail including messaging, high-level negotiations, and production logistics.</li>
-                    <li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> We handle rigorous insurance vetting and legal contract compliance to protect your property.</li>
-                    <li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Enjoy hands-off payment processing with guaranteed payouts delivered prior to prep crew arrival.</li>
-                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support—designed for hosts seeking a partnership-tier service that covers all on-site oversight and physical logistics from start to finish.</li>
-                  </ul>` 
-        },
-        pro: { 
-            title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-blue); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE LEADING ROLE</h3></div>
-                    <div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Higher earnings for higher engagement.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
-                    <li style="margin-bottom:18px;"><strong>• Optimization:</strong> ProHOSTs retain the same fully supported operations as VIP hosts, but keep a larger share of the location fee as a reward for their verified status and active engagement.</li>
-                    <li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> Maintain a 3-month verification streak OR manage 5+ approved locations.</li>
-                    <li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge to signal the property is available to top industry Pros.</li>
-                    <li style="margin-bottom:18px;"><strong>• Portfolio Rewards:</strong> We reward our hardworking hosts with large portfolios; qualifying locations (5+) must reside within the Studio Zone and be approved by FilmSCOUTpro.</li>
-                    <li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> A lowered service fee to reward hosts who contribute to our marketplace’s premium vetted inventory.</li>
-                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ This level also retains guaranteed manual payment delivery prior to crew arrival.</li>
-                  </ul>` 
-        },
-        proplus: { 
-            title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:#d4c400; font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST+</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE A-LIST</h3></div>
-                    <div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Our lowest rate reserved for experienced and independent partners.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);">
-                    <li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> You take full ownership of the operational workload, inquiries, and on-site logistics.</li>
-                    <li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> ProHOST+ partners must maintain 100% verified availability.</li>
-                    <li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication with Scouts and Producers via our integrated marketplace messaging system.</li>
-                    <li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong> for protected, automated payouts.</li>
-                    <li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ In order to qualify for our lowest service fee, hosts must be fully integrated for digital banking. There is no manual payment delivery for this service level.</li>
-                  </ul>` 
-        }
+        vip: { title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-pink); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">VIP HOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">YOUR RED CARPET DEBUT</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">The full-service filming experience.</div>`, body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;">New hosts begin with our <strong>full-service management</strong>, receiving comprehensive support so you can enjoy the perks of the industry without the logistical stress.</li><li style="margin-bottom:18px;"><strong>• Fully supported operations:</strong> We act as your primary liaison, managing every detail including messaging, high-level negotiations, and production logistics.</li><li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> We handle rigorous insurance vetting and legal contract compliance to protect your property.</li><li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Enjoy hands-off payment processing with guaranteed payouts delivered prior to prep crew arrival.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support—designed for hosts seeking a partnership-tier service that covers all on-site oversight and physical logistics from start to finish.</li></ul>` },
+        pro: { title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-blue); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE LEADING ROLE</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Higher earnings for higher engagement.</div>`, body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Optimization:</strong> ProHOSTs retain the same fully supported operations as VIP hosts, but keep a larger share of the location fee as a reward for their verified status and active engagement.</li><li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> Maintain a 3-month verification streak OR manage 5+ approved locations.</li><li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge to signal the property is available to top industry Pros.</li><li style="margin-bottom:18px;"><strong>• Portfolio Rewards:</strong> We reward our hardworking hosts with large portfolios; qualifying locations (5+) must reside within the Studio Zone and be approved by FilmSCOUTpro.</li><li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> A lowered service fee to reward hosts who contribute to our marketplace’s premium vetted inventory.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ This level also retains guaranteed manual payment delivery prior to crew arrival.</li></ul>` },
+        proplus: { title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:#d4c400; font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST+</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE A-LIST</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Our lowest rate reserved for experienced and independent partners.</div>`, body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> You take full ownership of the operational workload, inquiries, and on-site logistics.</li><li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> ProHOST+ partners must maintain 100% verified availability.</li><li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication with Scouts and Producers via our integrated marketplace messaging system.</li><li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong> for protected, automated payouts.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ In order to qualify for our lowest service fee, hosts must be fully integrated for digital banking. There is no manual payment delivery for this service level.</li></ul>` }
     };
 
-    function openModal(tier) {
-        document.getElementById('modalHeaderContent').innerHTML = modalData[tier].title;
-        document.getElementById('modalBody').innerHTML = modalData[tier].body;
-        document.getElementById('infoModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeModal() {
-        document.getElementById('infoModal').style.display = 'none';
-        document.body.style.overflow = 'auto'; 
-    }
-
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('infoModal')) {
-            closeModal();
-        }
-    }
+    function openModal(tier) { document.getElementById('modalHeaderContent').innerHTML = modalData[tier].title; document.getElementById('modalBody').innerHTML = modalData[tier].body; document.getElementById('infoModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('infoModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    window.onclick = function(event) { if (event.target == document.getElementById('infoModal')) { closeModal(); } }
 </script>
 
 </body>
