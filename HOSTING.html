@@ -168,7 +168,7 @@
         }
         .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); color: var(--brand-black); transform: scale(1.05); }
 
-        /* --- NEW IMPROVED PREMIUM FOOTER STYLES --- */
+        /* --- THE PREMIUM FOOTER STYLES (PRESERVED) --- */
         .site-footer {
             background-color: #000;
             color: #fff;
@@ -249,7 +249,7 @@
             transform: translateY(-4px);
         }
 
-        /* --- MEDIA QUERIES --- */
+        /* --- MEDIA QUERIES (FIXED FOR MOBILE CARDS) --- */
         @media (max-width: 1100px) { .internal-title { white-space: normal; } .internal-title span { display: inline; } .internal-title .break-mobile { display: block; } }
         
         @media (max-width: 950px) {
@@ -260,6 +260,12 @@
             .divider { margin: 0 auto 40px auto; }
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
             
+            /* Card Mobile Scaling Fix */
+            .card-header-split { flex-direction: row; justify-content: space-between; align-items: center; }
+            .card-header-right { width: 85px !important; margin-left: auto; }
+            .rate { font-size: 3.5rem !important; text-align: left; }
+            .tier-card h2 { font-size: 1.5rem !important; text-align: left; }
+
             /* Footer Mobile Shift */
             .footer-container { flex-direction: column; gap: 60px; }
             .footer-brand-box { align-items: center; }
@@ -268,10 +274,6 @@
             .footer-action-box { justify-content: center; }
             .action-stack { width: 100%; margin-top: 0; }
             .footer-social-row { margin-top: -5px; }
-
-            .card-header-right { width: 90px !important; }
-            .rate { font-size: 3.8rem !important; }
-            .tier-card h2 { font-size: 1.6rem !important; }
         }
 
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(10px); justify-content: center; align-items: center; }
@@ -419,18 +421,19 @@
 </div>
 
 <script>
+    /* 100% SURGICAL COPY RESTORED FROM MASTER LOCK VERSION */
     const modalData = {
         vip: { 
             title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-pink); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">VIP HOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">YOUR RED CARPET DEBUT</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">The full-service filming experience.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;">New hosts begin with our <strong>full-service management</strong>, receiving comprehensive support so you can enjoy the perks of the industry without the logistical stress.</li><li style="margin-bottom:18px;"><strong>• Fully supported operations:</strong> We act as your primary liaison.</li><li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> Rigorous insurance vetting.</li><li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Hands-off payment processing.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): Custom rates for partnership-tier service.</li></ul>` 
+            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;">New hosts begin with our <strong>full-service management</strong>, receiving comprehensive support so you can enjoy the perks of the industry without the logistical stress.</li><li style="margin-bottom:18px;"><strong>• Fully supported operations:</strong> We act as your primary liaison, managing every detail including messaging, high-level negotiations, and production logistics.</li><li style="margin-bottom:18px;"><strong>• Security & Compliance:</strong> We handle rigorous insurance vetting and legal contract compliance to protect your property.</li><li style="margin-bottom:18px;"><strong>• Financial Management:</strong> Enjoy hands-off payment processing with guaranteed payouts delivered prior to prep crew arrival.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px;">★ White-Glove Service (Up to 40%): We have custom rates for our most comprehensive level of support—designed for hosts seeking a partnership-tier service that covers all on-site oversight and physical logistics from start to finish.</li></ul>` 
         },
         pro: { 
             title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-blue); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE LEADING ROLE</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Higher earnings for higher engagement.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Optimization:</strong> Higher location fee shares for rewards.</li><li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> 3-month verification streak OR 5+ locations.</li><li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge.</li><li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> Lowered service fee.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ Retains guaranteed manual payment delivery.</li></ul>` 
+            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Optimization:</strong> ProHOSTs retain the same fully supported operations as VIP hosts, but keep a larger share of the location fee as a reward for their verified status and active engagement.</li><li style="margin-bottom:18px;"><strong>• How to Qualify:</strong> Maintain a 3-month verification streak OR manage 5+ approved locations.</li><li style="margin-bottom:18px;"><strong>• Verified Status:</strong> Displays a Verified Badge to signal the property is available to top industry Pros.</li><li style="margin-bottom:18px;"><strong>• Portfolio Rewards:</strong> We reward our hardworking hosts with large portfolios; qualifying locations (5+) must reside within the Studio Zone and be approved by FilmSCOUTpro.</li><li style="margin-bottom:18px;"><strong>• Performance Reward:</strong> A lowered service fee to reward hosts who contribute to our marketplace’s premium vetted inventory.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ This level also retains guaranteed manual payment delivery prior to crew arrival.</li></ul>` 
         },
         proplus: { 
             title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:#d4c400; font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">ProHOST+</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">THE A-LIST</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">Our lowest rate reserved for experienced and independent partners.</div>`, 
-            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> Ownership of operational workload.</li><li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> Must maintain 100% verified availability.</li><li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication.</li><li style="margin-bottom:18px;"><strong>• Stripe Protection:</strong> Protected, automated payouts.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ Digital banking integration required; no manual payment delivery.</li></ul>` 
+            body: `<ul style="list-style:none; padding:0; font-size:1.05rem; line-height:1.6; color:var(--text-main);"><li style="margin-bottom:18px;"><strong>• Host Responsibility:</strong> You take full ownership of the operational workload, inquiries, and on-site logistics.</li><li style="margin-bottom:18px;"><strong>• Verified Availability:</strong> ProHOST+ partners must maintain 100% verified availability.</li><li style="margin-bottom:18px;"><strong>• Secure Messaging:</strong> Direct-to-production communication with Scouts and Producers via our integrated marketplace messaging system.</li><li style="margin-bottom:18px;"><strong>• Integrated Stripe Protection:</strong> All ProHOST+ partners must integrate with our secure <strong>Stripe banking system</strong> for protected, automated payouts.</li><li style="font-weight: 500; color: var(--text-secondary); margin-top:15px; font-style:italic;">★ In order to qualify for our lowest service fee, hosts must be fully integrated for digital banking. There is no manual payment delivery for this service level.</li></ul>` 
         }
     };
 
