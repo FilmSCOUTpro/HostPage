@@ -168,12 +168,12 @@
         }
         .btn-verify:hover { background: var(--brand-green); border-color: var(--brand-green); color: var(--brand-black); transform: scale(1.05); }
 
-        /* --- THE PREMIUM FOOTER STYLES (PRESERVED) --- */
+        /* --- THE NEW WIDE PREMIUM FOOTER STYLES --- */
         .site-footer {
             background-color: #000;
             color: #fff;
-            padding: 100px 0 80px 0; 
-            border-top: 1px solid #1a1a1a;
+            padding: 140px 0 120px 0; 
+            border-top: none; /* Blends seamlessly with host page background */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -188,12 +188,12 @@
         }
 
         .footer-brand-box { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
-        .footer-logo-img { width: 340px; height: auto; margin-bottom: 6px; }
-        .footer-made-in { width: 220px; height: auto; opacity: 0.7; }
+        .footer-logo-img { width: 210px; height: auto; margin-bottom: 12px; }
+        .footer-made-in { width: 220px; height: auto; opacity: 0.6; }
 
-        .footer-nav-box { flex: 1.2; display: flex; align-items: center; gap: 50px; justify-content: center; }
-        .footer-divider-thin { width: 1px; height: 110px; background-color: rgba(255, 255, 255, 0.25); }
-        .footer-links { display: flex; flex-direction: column; gap: 12px; }
+        .footer-nav-box { flex: 1.2; display: flex; align-items: center; gap: 60px; justify-content: center; }
+        .footer-divider-thin { width: 1px; height: 140px; background-color: rgba(255, 255, 255, 0.15); }
+        .footer-links { display: flex; flex-direction: column; gap: 16px; }
         .footer-link-item {
             color: #fff; text-decoration: none; font-size: 13px; font-weight: 800; 
             letter-spacing: 3.5px; text-transform: uppercase;
@@ -249,7 +249,7 @@
             transform: translateY(-4px);
         }
 
-        /* --- MEDIA QUERIES (FIXED FOR MOBILE CARDS) --- */
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 1100px) { .internal-title { white-space: normal; } .internal-title span { display: inline; } .internal-title .break-mobile { display: block; } }
         
         @media (max-width: 950px) {
@@ -260,13 +260,13 @@
             .divider { margin: 0 auto 40px auto; }
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
             
-            /* Card Mobile Scaling Fix */
             .card-header-split { flex-direction: row; justify-content: space-between; align-items: center; }
             .card-header-right { width: 85px !important; margin-left: auto; }
             .rate { font-size: 3.5rem !important; text-align: left; }
             .tier-card h2 { font-size: 1.5rem !important; text-align: left; }
 
             /* Footer Mobile Shift */
+            .site-footer { padding: 80px 0 60px 0; }
             .footer-container { flex-direction: column; gap: 60px; }
             .footer-brand-box { align-items: center; }
             .footer-divider-thin { display: none; }
@@ -374,9 +374,8 @@
 
 <footer class="site-footer">
     <div class="footer-container">
-        
         <div class="footer-brand-box">
-            <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/FOOTER%20/FOOTER-LOGO.png" alt="Film Scout Pro" class="footer-logo-img">
+            <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/FOOTER%20/FSPFWhiteLetters.png?updatedAt=1771441514265" alt="Film Scout Pro" class="footer-logo-img">
             <img src="https://ik.imagekit.io/zmjtdg822h/STEVE'S%20FOLDER/FOOTER%20/FOOTER-MADEinTORONTO.png" alt="FilmSCOUTpro Made in Toronto-Canada" class="footer-made-in">
         </div>
 
@@ -408,7 +407,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </footer>
 
@@ -421,7 +419,6 @@
 </div>
 
 <script>
-    /* 100% SURGICAL COPY RESTORED FROM MASTER LOCK VERSION */
     const modalData = {
         vip: { 
             title: `<div class="modal-header-text" style="text-align:center;"><h2 style="color:var(--brand-pink); font-size:3.5rem; font-weight:900; margin:0; font-style:italic;">VIP HOST</h2><h3 style="font-size:0.9rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-top:15px;">YOUR RED CARPET DEBUT</h3></div><div style="font-style:italic; font-weight:500; color:var(--text-secondary); text-align:center; margin-bottom:25px;">The full-service filming experience.</div>`, 
