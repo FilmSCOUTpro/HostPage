@@ -138,8 +138,8 @@
         .card-header-split { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
         .card-header-left { flex: 1; text-align: left; min-width: 0; }
         
-        /* SURGICAL CHANGE: Positioned 12px down and enlarged for Centered Dead-Space utilization */
-        .card-header-right { flex-shrink: 0; width: 125px; margin-left: 10px; transform: translateY(12px); }
+        /* SURGICAL CHANGE: Dropped Y-axis to center shield vertically between top and bottom dividers */
+        .card-header-right { flex-shrink: 0; width: 125px; margin-right: -10px; transform: translateY(22px); }
         .shield-img { width: 100%; height: auto; display: block; }
 
         .tier-card h2 { font-size: clamp(1rem, 1.8vw, 1.7rem); margin: 0 0 10px 0; font-weight: 800; text-align: left; white-space: nowrap; }
@@ -226,8 +226,8 @@
             .tier-grid { grid-template-columns: 1fr; gap: 25px; }
             .card-header-split { flex-direction: row; justify-content: space-between; align-items: center; }
             
-            /* MOBILE FIX: Enlarged to 108px and shifted right to prevent overlap with centered alignment */
-            .card-header-right { width: 108px !important; margin-left: auto; margin-right: -10px; transform: translateY(5px); }
+            /* MOBILE FIX: Lowered translateY to 10px for mobile centering */
+            .card-header-right { width: 108px !important; margin-left: auto; margin-right: -15px; transform: translateY(10px); }
             
             .rate { font-size: 3.5rem !important; text-align: left; }
             .tier-card h2 { font-size: 1.5rem !important; text-align: left; }
